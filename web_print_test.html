@@ -3,190 +3,210 @@
 <head>
 	<meta charset="UTF-8">
 	<title>页面打印测试</title>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/print.css">
 </head>
 <body>
-	<div id="table">
-		<table>
-			<!-- 标题 -->
-			<tr class="title">
-				<th colspan="15">成都市58度食品有限公司预配发货单</th>
-			</tr>
-			<!-- 说明 -->
-			<tr class="dec-info">
-				<td colspan="15">
-					配送模版：原物料需求要货&nbsp;&nbsp;到货日期：2015-06-01至2015-06-04&nbsp;&nbsp;配送线路：成都一线&nbsp;&nbsp;予配发货单号：YP201505290001
-				</td>
-			</tr>
-			<!-- 明细行头 -->
-			<tr class="center">
-				<td rowspan="3">所属分类</td>
-				<td rowspan="3">商品编码</td>
-				<td rowspan="3">商品名称（规格）</td>
-				<td rowspan="3">单位</td>
-				<td rowspan="3">合计</td>
-				<td colspan="6">成都一线</td>
-				<td colspan="4">成都二线</td>
-			</tr>
-			<tr class="center">
-				<td rowspan="2">成都高新区店</td>
-				<td rowspan="2">成都一店</td>
-				<td rowspan="2">成都一店</td>
-				<td rowspan="2">成都一店</td>
-				<td rowspan="2">成都一店</td>
-				<td rowspan="2">成都一店</td>
-				<td rowspan="2">成都一店</td>
-				<td rowspan="2">成都一店</td>
-				<td rowspan="2">成都一店</td>
-				<td rowspan="2">成都一店</td>
-			</tr>
-			<tr>
-			</tr>
-			<!-- 明细身体 -->
-			<tr class="detail">
-				<td>奶制品类</td>
-				<td>101001</td>
-				<td>伊利优酸乳(250ml)</td>
-				<td>包</td>
-				<td>1000</td>
-				<td>100</td>
-				<td>100</td>
-				<td>100</td>
-				<td>100</td>
-				<td>100</td>
-				<td>100</td>
-				<td>100</td>
-				<td>100</td>
-				<td>100</td>
-				<td>100</td>
-			</tr>
-			<tr class="detail">
-				<td>粉类</td>
-				<td>101001</td>
-				<td>高粉</td>
-				<td>包</td>
-				<td>90</td>
-				<td>2</td>
-				<td>0</td>
-				<td>2</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-				<td>58</td>
-				<td>4</td>
-				<td>15</td>
-				<td>0</td>
-			</tr>
-			<tr class="detail">
-				<td>粉类</td>
-				<td>101001</td>
-				<td>高粉</td>
-				<td>包</td>
-				<td>90</td>
-				<td>2</td>
-				<td>0</td>
-				<td>2</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-				<td>58</td>
-				<td>4</td>
-				<td>15</td>
-				<td>0</td>
-			</tr>
-			<tr class="detail">
-				<td>粉类</td>
-				<td>101001</td>
-				<td>高粉</td>
-				<td>包</td>
-				<td>90</td>
-				<td>2</td>
-				<td>0</td>
-				<td>2</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-				<td>58</td>
-				<td>4</td>
-				<td>15</td>
-				<td>0</td>
-			</tr>
-			<tr class="detail">
-				<td>粉类</td>
-				<td>101001</td>
-				<td>高粉</td>
-				<td>包</td>
-				<td>90</td>
-				<td>2</td>
-				<td>0</td>
-				<td>2</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-				<td>58</td>
-				<td>4</td>
-				<td>15</td>
-				<td>0</td>
-			</tr>
-			<tr class="detail">
-				<td>粉类</td>
-				<td>101001</td>
-				<td>高粉</td>
-				<td>包</td>
-				<td>90</td>
-				<td>2</td>
-				<td>0</td>
-				<td>2</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-				<td>58</td>
-				<td>4</td>
-				<td>15</td>
-				<td>0</td>
-			</tr>
-			<tr class="detail">
-				<td>粉类</td>
-				<td>101001</td>
-				<td>高粉</td>
-				<td>包</td>
-				<td>90</td>
-				<td>2</td>
-				<td>0</td>
-				<td>2</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-				<td>58</td>
-				<td>4</td>
-				<td>15</td>
-				<td>0</td>
-			</tr>
-			<!-- 备注信息 -->
-			<tr class="foot">
-				<td colspan="15">
-					备注：
-				</td>
-			</tr>
-			<tr>
-				<td colspan="15">
-					制单：
-					<span style="margin-left:30%">发货：</span>
-					<span style="margin-left:30%">审核：</span>
-				</td>
-			</tr>
-		</table>
+	<!-- <div class="print-area">
+		<div class="print-page">
+			<table>
+				标题
+				<tr class="title">
+					<th colspan="15">成都市58度食品有限公司预配发货单</th>
+				</tr>
+				说明
+				<tr class="dec-info">
+					<td colspan="15">
+						配送模版：原物料需求要货&nbsp;&nbsp;到货日期：2015-06-01至2015-06-04&nbsp;&nbsp;配送线路：成都一线&nbsp;&nbsp;予配发货单号：YP201505290001
+					</td>
+				</tr>
+				明细行头
+				<tr class="center">
+					<td rowspan="3">所属分类</td>
+					<td rowspan="3">商品编码</td>
+					<td rowspan="3">商品名称（规格）</td>
+					<td rowspan="3">单位</td>
+					<td rowspan="3">合计</td>
+					<td colspan="6">成都一线</td>
+					<td colspan="4">成都二线</td>
+				</tr>
+				<tr class="center">
+					<td rowspan="2">成都高新区店</td>
+					<td rowspan="2">成都一店</td>
+					<td rowspan="2">成都一店</td>
+					<td rowspan="2">成都一店</td>
+					<td rowspan="2">成都一店</td>
+					<td rowspan="2">成都一店</td>
+					<td rowspan="2">成都一店</td>
+					<td rowspan="2">成都一店</td>
+					<td rowspan="2">成都一店</td>
+					<td rowspan="2">成都一店</td>
+				</tr>
+				<tr>
+				</tr>
+				明细身体
+				<tr class="detail">
+					<td>奶制品类</td>
+					<td>101001</td>
+					<td>伊利优酸乳(250ml)</td>
+					<td>包</td>
+					<td>1000</td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+				</tr>
+				<tr class="detail">
+					<td>粉类</td>
+					<td>101001</td>
+					<td>高粉</td>
+					<td>包</td>
+					<td>90</td>
+					<td>2</td>
+					<td>0</td>
+					<td>2</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>58</td>
+					<td>4</td>
+					<td>15</td>
+					<td>0</td>
+				</tr>
+				<tr class="detail">
+					<td>粉类</td>
+					<td>101001</td>
+					<td>高粉</td>
+					<td>包</td>
+					<td>90</td>
+					<td>2</td>
+					<td>0</td>
+					<td>2</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>58</td>
+					<td>4</td>
+					<td>15</td>
+					<td>0</td>
+				</tr>
+				<tr class="detail">
+					<td>粉类</td>
+					<td>101001</td>
+					<td>高粉</td>
+					<td>包</td>
+					<td>90</td>
+					<td>2</td>
+					<td>0</td>
+					<td>2</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>58</td>
+					<td>4</td>
+					<td>15</td>
+					<td>0</td>
+				</tr>
+				<tr class="detail">
+					<td>粉类</td>
+					<td>101001</td>
+					<td>高粉</td>
+					<td>包</td>
+					<td>90</td>
+					<td>2</td>
+					<td>0</td>
+					<td>2</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>58</td>
+					<td>4</td>
+					<td>15</td>
+					<td>0</td>
+				</tr>
+				<tr class="detail">
+					<td>粉类</td>
+					<td>101001</td>
+					<td>高粉</td>
+					<td>包</td>
+					<td>90</td>
+					<td>2</td>
+					<td>0</td>
+					<td>2</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>58</td>
+					<td>4</td>
+					<td>15</td>
+					<td>0</td>
+				</tr>
+				<tr class="detail">
+					<td>粉类</td>
+					<td>101001</td>
+					<td>高粉</td>
+					<td>包</td>
+					<td>90</td>
+					<td>2</td>
+					<td>0</td>
+					<td>2</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>58</td>
+					<td>4</td>
+					<td>15</td>
+					<td>0</td>
+				</tr>
+				备注信息
+				<tr class="foot">
+					<td colspan="15">
+						备注：
+					</td>
+				</tr>
+				<tr>
+					<td colspan="15">
+						制单：
+						<span style="margin-left:30%">发货：</span>
+						<span style="margin-left:30%">审核：</span>
+					</td>
+				</tr>
+			</table>
+			<div class="page-footer">
+				1/2
+			</div>
+		</div>
+	</div> -->
+
+	<div class="print-area">
 	</div>
 
 	<div>
 		<button onclick="print()">打印</button>
 	</div>
-
-	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-	<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-	<script src="js/lib/template.js"></script>
-	<script src="js/lib/jquery.jqprint-0.3.js"></script>
-
+	
+	<!-- 打印页 -->
+	<script id="printPage" type="text/html">
+		{{each pages as page i}}
+			<div class="print-page">
+				<table>
+					{{if page.showTitle}}
+						{{include 'title' page}}
+					{{/if}}
+					{{include 'dec-info' page}}
+					{{include 'detail-head' page}}
+					{{include 'detail-body' page}}
+					{{include 'detail-foot' page}}
+				</table>
+			</div>
+		{{/each}}
+	</script>
 	<!-- 标题 -->
 	<script id="title" type="text/html">
 		<tr class="title">
@@ -196,61 +216,53 @@
 	<!-- 说明 -->
 	<script id="dec-info" type="text/html">
 		<tr class="dec-info">
-			<td colspan="15">
-				配送模版：{{distributionTemplate}}&nbsp;&nbsp;到货日期：{{startDate}}至{{endDate}}&nbsp;&nbsp;配送线路：{{distributionRoutes}}&nbsp;&nbsp;予配发货单号：{{documentNumber}}
+			<td class="left" colspan="15">
+				配送模版：{{psmb}}&nbsp;&nbsp;&nbsp;&nbsp;到货日期：{{dhrq}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;配送线路：{{pslx}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;予配发货单号：{{fhdh}}
 			</td>
 		</tr>
 	</script>
 	<!-- 明细行头 -->
-	<script id="dec-info" type="text/html">
+	<script id="detail-head" type="text/html">
 		<tr class="center">
 			<td rowspan="3">所属分类</td>
 			<td rowspan="3">商品编码</td>
 			<td rowspan="3">商品名称（规格）</td>
 			<td rowspan="3">单位</td>
 			<td rowspan="3">合计</td>
-			<td colspan="6">成都一线</td>
-			<td colspan="4">成都二线</td>
+			{{each line.lines as value i}}
+				<td colspan="{{value.branchsCount}}">{{value.name}}</td>
+			{{/each}}
 		</tr>
 		<tr class="center">
-			<td rowspan="2">成都高新区店</td>
-			<td rowspan="2">成都一店</td>
-			<td rowspan="2">成都一店</td>
-			<td rowspan="2">成都一店</td>
-			<td rowspan="2">成都一店</td>
-			<td rowspan="2">成都一店</td>
-			<td rowspan="2">成都一店</td>
-			<td rowspan="2">成都一店</td>
-			<td rowspan="2">成都一店</td>
-			<td rowspan="2">成都一店</td>
+			{{each line.branchs as value i}}
+				<td rowspan="2">{{value}}</td>
+			{{/each}}
 		</tr>
 		<tr>
 		</tr>
 	</script>
 	<!-- 明细身体 -->
-	<script id="detail" type="text/html">
-		{{each list as value index}}
+	<script id="detail-body" type="text/html">
+		{{each detail as value index}}
 			<tr class="detail">
-				<td>value.col1</td>
-				<td>value.col2</td>
-				<td>value.col3</td>
-				<td>value.col4</td>
-				<td>value.col5</td>
-				<td>value.col6</td>
-				<td>value.col7</td>
-				<td>value.col8</td>
-				<td>value.col9</td>
-				<td>value.col10</td>
-				<td>value.col11</td>
-				<td>value.col12</td>
-				<td>value.col13</td>
-				<td>value.col14</td>
-				<td>value.col15</td>
+				<td class="left">{{value.ssfl}}</td>
+				<td class="center">{{value.spbm}}</td>
+				<td class="left"><span class="nowrap">{{value.spmc}}</span></td>
+				<td class="center">{{value.dw}}</td>
+				<td class="right">{{value.hj}}</td>
+				<td class="right">{{value.col1}}</td>
+				<td class="right">{{value.col2}}</td>
+				<td class="right">{{value.col3}}</td>
+				<td class="right">{{value.col4}}</td>
+				<td class="right">{{value.col5}}</td>
+				<td class="right">{{value.col6}}</td>
+				<td class="right">{{value.col7}}</td>
+				<td class="right">{{value.col8}}</td>
 			</tr>
 		{{/each}}
 	</script>
 	<!-- 备注信息 -->
-	<script id="dec-info" type="text/html">
+	<script id="detail-foot" type="text/html">
 		<tr class="foot">
 			<td colspan="15">
 				备注：
@@ -263,31 +275,12 @@
 				<span style="margin-left:30%">审核：</span>
 			</td>
 		</tr>
+		<div class="page-footer">{{pageIndex}}/{{pageCount}}</div>
 	</script>
 
-	<script type="text/javascript">
-		var testData = {
-			title: "成都市58度食品有限公司预配发货单",
-			distributionTemplate: "原物料需求要货",
-			startDate: "2015-06-01",
-			endDate: "2015-06-04",
-			distributionRoutes: "成都一线",
-			documentNumber: "YP201505290001"
-		};
-		
-		function bulidPrintHtml(){
-
-		}
-
-		function print(){
-			$("#table").jqprint({
-				debug: true, //如果是true则可以显示iframe查看效果（iframe默认高和宽都很小，可以再源码中调大），默认是false
-				importCSS: true, //true表示引进原来的页面的css，默认是true。（如果是true，先会找$("link[media=print]")，若没有会去找$("link")中的css文件）
-				printContainer: true, //表示如果原来选择的对象必须被纳入打印（注意：设置为false可能会打破你的CSS规则）。
-				operaSupport: true//表示如果插件也必须支持歌opera浏览器，在这种情况下，它提供了建立一个临时的打印选项卡。默认是true
-			});
-		}
-	</script>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="js/lib/template.js"></script>
+	<script src="js/print.js"></script>
 
 </body>
 </html>

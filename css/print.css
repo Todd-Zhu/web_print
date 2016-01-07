@@ -1,3 +1,20 @@
+.print-area{
+	margin: 0 auto;
+	width: 750px;
+	font-family: SimHei;
+}
+.print-page{
+	width: 100%;
+	height: 1092px;
+	position: relative;
+	/*border: 1px solid black;*/
+}
+.page-footer{
+	bottom: 10px;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+}
 table{
 	font-size: 12px;
 	/*width: 1024px;*/
@@ -7,7 +24,8 @@ tr{
 	height: 20px;
 }
 th{
-	height: 30px;
+	text-align: center;
+	height: 40px;
 	font-size: 24px;
 	border: 1px solid #000;
 }
@@ -17,69 +35,129 @@ td{
 .center{
 	text-align: center;
 }
+.left{
+	padding-left: 2px;
+	text-align: left;
+}
 .right{
+	padding-right: 2px;
 	text-align: right;
 }
-.foot{
-	vertical-align: top;
-	height: 40px;
+.nowrap{
+	display: block;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
 }
 tr.detail>td:nth-child(1){
-	width: 8%;
+	width: 10%;
 }
 tr.detail>td:nth-child(2){
 	text-align: center;
-	width: 7%;
+	width: 10%;
 }
 tr.detail>td:nth-child(3){
-	width: 15%;
+	width: 19%;
 }
 tr.detail>td:nth-child(4){
-	text-align: center;
 	width: 5%;
 }
 tr.detail>td:nth-child(5){
-	text-align: right;
-	width: 5%;
+	width: 8%;
 }
 
 tr.detail>td:nth-child(6){
-	text-align: right;
 	width: 6%;
 }
 tr.detail>td:nth-child(7){
-	text-align: right;
 	width: 6%;
 }
 tr.detail>td:nth-child(8){
-	text-align: right;
 	width: 6%;
 }
 tr.detail>td:nth-child(9){
-	text-align: right;
 	width: 6%;
 }
 tr.detail>td:nth-child(10){
-	text-align: right;
 	width: 6%;
 }
 tr.detail>td:nth-child(11){
-	text-align: right;
 	width: 6%;
 }
 tr.detail>td:nth-child(12){
-	text-align: right;
 	width: 6%;
 }
 tr.detail>td:nth-child(13){
-	text-align: right;
 	width: 6%;
 }
-tr.detail>td:nth-child(14){
-	text-align: right;
-	width: 6%;
+
+.print_box{
+	position: fixed;
+	text-align: center;
+	left: 0;
+	top: 0;
+	display: none;
+	width: 100%;
+	height: 100%;
 }
-tr.detail>td:nth-child(15){
-	text-align: right;
-	width: 6%;
+.print_overlay{
+	position: fixed;
+	background: rgba(0,0,0,0.4);
+	width: 100%;
+	height: 100%;
+	visibility: inherit;
+}
+.print_fixer{
+	display: inline-block;
+	position: relative;
+	margin: 12% auto 0;
+}
+.print_outer{
+	text-align: center;
+	background: white;
+	border-radius: 3px;
+	box-shadow: 2px 5px 5px 0 rgba(0,0,0,0.3);
+	visibility: inherit;
+}
+.print_content{
+	padding: 5px;
+	color: black;
+	border-bottom: 1px solid gray;
+}
+.print_content>span{
+	line-height: 24px;
+	font-size: 24px;
+	float: right;
+	cursor: pointer;
+}
+.print_toolbar{
+	display: inline-block;
+	padding: 10px 20px 10px;
+}
+.print_button{
+	padding: 20px 10px;
+	border: 3px solid black;
+	border-radius: 3px;
+	display: inline-block;
+	text-decoration: none!important;
+	float: left;
+	color: black;
+}
+.print_button:hover{
+	background-color: #e5e5e5;
+	border: 3px solid #5D5B5B;
+}
+.print_toolbar>a>span{
+	display: block;
+	width: 60px;
+	height: 50px;
+}
+.print_toolbar>a:first-child{
+	margin-right: 30px;
+}
+
+
+button{
+	position: absolute;
+	top: 1px;
 }
