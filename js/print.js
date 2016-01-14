@@ -237,6 +237,7 @@ function makePageData(){
 						dhrq: PARAM_DHRQ,
 						pslx: PARAM_PSLX,
 						fhdh: PARAM_FHDH,
+						zdrq: PARAM_ZDRQ,
 						line: line,
 						pageStyle: pageType,
 						detail: detail[0]

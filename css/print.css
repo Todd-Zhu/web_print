@@ -24,7 +24,7 @@
 .page-footer{
 	width: 190mm;
 	height: 14px;
-	bottom: 0;
+	bottom: 10mm;
 	text-align: center;
 	position: absolute;
 }
@@ -163,6 +163,9 @@
 	}
 	.print-web-btn{
 		display: none;
+	}
+	.page-footer{
+		bottom: 0;
 	}
 	/* @page {
 		margin-top: 10mm;
