@@ -9,7 +9,7 @@ var STORE_BEST_COUNT = 8;
 //打印纸张类型
 var PAGE_TYPE_A4 = 'A4';
 var PAGE_TYPE_HAVLE = 'stylus';
-var pageType = PAGE_TYPE_HAVLE; //打印纸张类型
+var pageType = PAGE_TYPE_A4; //打印纸张类型
 
 //发货单单号信息
 var PARAM_TITLE = '';
