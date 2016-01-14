@@ -14,17 +14,19 @@
 	
 	<!-- 打印页 -->
 	<script id="printPage" type="text/html">
-	    <div class="print-page {{pageStyle}}">
+	    {{each pages as page i}}
+	    <div class="print-page">
 	        <table>
-	            {{if showTitle}}
-	            	{{include 'title'}}
+	            {{if page.showTitle}}
+	            {{include 'title' page}}
 	            {{/if}}
-	            {{include 'dec-info'}}
-	            {{include 'detail-head'}}
-	            {{include 'detail-body' detail}}
-	            {{include 'detail-foot'}}
+	            {{include 'dec-info' page}}
+	            {{include 'detail-head' page}}
+	            {{include 'detail-body' page}}
+	            {{include 'detail-foot' page}}
 	        </table>
 	    </div>
+	    {{/each}}
 	</script>
 	<!-- 标题 -->
 	<script id="title" type="text/html">
@@ -36,23 +38,15 @@
 	<script id="dec-info" type="text/html">
 	    <tr class="dec-info">
 	        <td class="left" colspan="15">
-	        	<div class="row">
-		            <span class="label6">预配发货单号：</span>
-		            <span class="fhdh">{{fhdh}}</span>
-		            <span class="label4">制单日期：</span>
-		            <span class="zdrq">{{zdrq}}</span>
-	        	</div>
-	        </td>
-	    </tr>
-	    <tr class="dec-info">
-	        <td class="left" colspan="15">
-	        	<div class="row">
+	        	<div className="row">
 		            <span class="label4">配送模版：</span>
 		            <span class="psmb">{{psmb}}</span>
 		            <span class="label4">到货日期：</span>
 		            <span class="dhrq">{{dhrq}}</span>
 		            <span class="label4">配送线路：</span>
 		            <span class="pslx">{{pslx}}</span>
+		            <span class="label6">预配发货单号：</span>
+		            <span class="fhdh">{{fhdh}}</span>
 	        	</div>
 	        </td>
 	    </tr>
@@ -79,21 +73,23 @@
 	</script>
 	<!-- 明细身体 -->
 	<script id="detail-body" type="text/html">
+	    {{each detail as value index}}
 	    <tr class="detail">
-	        <td class="left">{{ssfl}}</td>
-	        <td class="center">{{spbm}}</td>
-	        <td class="left">{{spmc}}</td>
-	        <td class="center">{{dw}}</td>
-	        <td class="right">{{hj}}</td>
-	        <td class="right">{{col1}}</td>
-	        <td class="right">{{col2}}</td>
-	        <td class="right">{{col3}}</td>
-	        <td class="right">{{col4}}</td>
-	        <td class="right">{{col5}}</td>
-	        <td class="right">{{col6}}</td>
-	        <td class="right">{{col7}}</td>
-	        <td class="right">{{col8}}</td>
+	        <td class="left">{{value.ssfl}}</td>
+	        <td class="center">{{value.spbm}}</td>
+	        <td class="left">{{value.spmc}}</td>
+	        <td class="center">{{value.dw}}</td>
+	        <td class="right">{{value.hj}}</td>
+	        <td class="right">{{value.col1}}</td>
+	        <td class="right">{{value.col2}}</td>
+	        <td class="right">{{value.col3}}</td>
+	        <td class="right">{{value.col4}}</td>
+	        <td class="right">{{value.col5}}</td>
+	        <td class="right">{{value.col6}}</td>
+	        <td class="right">{{value.col7}}</td>
+	        <td class="right">{{value.col8}}</td>
 	    </tr>
+	    {{/each}}
 	</script>
 	<!-- 备注信息 -->
 	<script id="detail-foot" type="text/html">
@@ -102,7 +98,7 @@
 	            <b>备注：</b>
 	        </td>
 	    </tr>
-	    <tr class="foot">
+	    <tr>
 	        <td colspan="15">
 	            <b>制单：
 		            <span style="margin-left:30%">发货：</span>
@@ -110,13 +106,13 @@
 	            </b>
 	        </td>
 	    </tr>
-	    <div class="page-footer"></div>
+	    <div class="page-footer">{{pageIndex}}/{{pageCount}}</div>
 	</script>
 	<button class="print-web-btn" onclick="myprint()">打印</button>
 
 	<script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js"></script>
 	<script src="js/lib/template.min.js"></script>
-	<script src="js/print.js"></script>
+	<script src="js/print-row-count.js"></script>
 
 </body>
 </html>

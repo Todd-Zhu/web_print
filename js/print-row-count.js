@@ -9,7 +9,6 @@ var STORE_BEST_COUNT = 8;
 //打印纸张类型
 var PAGE_TYPE_A4 = 'A4';
 var PAGE_TYPE_HAVLE = 'stylus';
-var pageType = PAGE_TYPE_HAVLE; //打印纸张类型
 
 //发货单单号信息
 var PARAM_TITLE = '';
@@ -17,19 +16,17 @@ var PARAM_PSMB = '';
 var PARAM_DHRQ = '';
 var PARAM_PSLX = '';
 var PARAM_FHDH = '';
-var PARAM_ZDRQ = '';
 
 function makeData(){
-	var dataSize = 40;
+	var dataSize = 20;
 	var lineData = [];
 	var detailData = [];
 
 	PARAM_TITLE = '成都市58度食品有限公司预配发货单';
-	PARAM_PSMB = '原物料需求好长好长好长好长好长好长asdasd-sdfksldf,.sdfsdfsdf';
+	PARAM_PSMB = '原物料需求要货好长好长好长好长好长好长好长好长好长好长';
 	PARAM_DHRQ = '2015-06-01至2015-06-04';
-	PARAM_PSLX = '成都一线,21,test111,BEIJINGMOUQU,cs20151224';
+	PARAM_PSLX = '成都一线好长好长好长好长好长好长好长好长好长好长';
 	PARAM_FHDH = 'YP201505290001';
-	PARAM_ZDRQ = '2015-06-01';
 
 	
 	//线路数据
@@ -49,9 +46,9 @@ function makeData(){
 	//商品发货数据
 	for (var i = 0; i < dataSize; i++) {
 		var rowData = {
-			ssfl: '奶制品类品类',
+			ssfl: '奶制品类品',
 			spbm: '123456789012',
-			spmc: '伊利优酸乳(250ml)好sdasd-sdfksldf,.sdfsdfsdf长好长',
+			spmc: '伊利优酸乳(250ml)长好长好长好长好长好长好长好长好长',
 			dw: '千克',
 			hj: '10,000',
 			col1: '100',
@@ -188,85 +185,65 @@ function makePageData(){
 	var pageHeadGroup = sourceData.pageHeadGroup;
 	var pageDetailGroup = sourceData.pageDetailGroup;
 
-	var isFirstPage = true;
+	var pageData = []; //所有页数据
 	for (var i = 0; i < pageHeadGroup.length; i++) {
 		var line = pageHeadGroup[i];
 		var detail = pageDetailGroup[i];
-		var isNextGroup = true; //是否是下一分组
-
 
 		while(detail.length > 0){
-			if(isFirstPage || isNextGroup){
-				//填充一页
-				var page = {
-					showTitle: isFirstPage,
-					title: PARAM_TITLE,
-					psmb: PARAM_PSMB,
-					dhrq: PARAM_DHRQ,
-					pslx: PARAM_PSLX,
-					fhdh: PARAM_FHDH,
-					zdrq: PARAM_ZDRQ,
-					line: line,
-					pageStyle: pageType,
-					detail: detail[0]
-				};
+			var isFirstPage = (pageData.length == 0);
+			var pageDetail = [];
 
-				var pageHtml = template('printPage', page);
-				
-				$('.print-area').append($(pageHtml));
-
-				detail.shift();
-				isFirstPage = false;
-				isNextGroup = false;
-				continue;
+			if(isFirstPage){
+				pageDetail = detail.splice(0,PAGE_FIRST_BEST);
 			}else{
-				//添加页明细
-				var rowHtml = template('detail-body', detail[0]);
-				$('.print-page:last>table tr.detail:last').after($(rowHtml));
-
-				//页内容超出时删除最后一个添加的行
-				var isOverFlow = ( $('.print-page:last>table').height() + $('.page-footer:last').height() > $('.print-page:last').height() ); //判断高度是否超出
-				if(isOverFlow){
-					$('.print-page:last>table tr.detail:last').remove();
-
-					//填充一页
-					var page = {
-						showTitle: isFirstPage,
-						title: PARAM_TITLE,
-						psmb: PARAM_PSMB,
-						dhrq: PARAM_DHRQ,
-						pslx: PARAM_PSLX,
-						fhdh: PARAM_FHDH,
-						line: line,
-						pageStyle: pageType,
-						detail: detail[0]
-					};
-
-					var pageHtml = template('printPage', page);
-					
-					$('.print-area').append($(pageHtml));
-
-					isFirstPage = false;
-					isNextGroup = false;
-				}
-				detail.shift();
+				pageDetail = detail.splice(0,PAGE_ROW_COUNT);
 			}
 
+			var page = {
+				showTitle: isFirstPage,
+				title: PARAM_TITLE,
+				psmb: PARAM_PSMB,
+				dhrq: PARAM_DHRQ,
+				pslx: PARAM_PSLX,
+				fhdh: PARAM_FHDH,
+				line: line,
+				detail: pageDetail
+			};
+
+			pageData.push(page);
 		}
 	}
 
+	//添加页数
+	for (var i = 0; i < pageData.length; i++) {
+		pageData[i].pageIndex = i+1;
+		pageData[i].pageCount = pageData.length;
+	}
+
+	return {pages: pageData};
 }
 
 function fullPage(){
-	makePageData();
-	var pageCount = $('.page-footer').length;
-	$('.page-footer').each(function(i){
-		$(this).text(i + 1 + '/' + pageCount);
-	});
+    PAGE_FIRST_BEST = PAGE_ROW_COUNT - PAGE_TITLE; //重新计算第一页的最大数
+
+    var data = makePageData();
+    var pageHtml = template('printPage', data);
+
+    $('.print-area').html(pageHtml);
 }
 
 function fullPageWithPageType(){
-    fullPage();
+	var pageType = PAGE_TYPE_A4;
+
+    if(pageType == PAGE_TYPE_A4){
+        PAGE_ROW_COUNT = 40;
+        fullPage();
+    }else{
+        PAGE_ROW_COUNT = 12;
+        fullPage();
+        $(".print-page").css({height:'400px'});
+    }
 }
 fullPageWithPageType();
 
