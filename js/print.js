@@ -9,7 +9,7 @@ var STORE_BEST_COUNT = 8;
 //打印纸张类型
 var PAGE_TYPE_A4 = 'A4';
 var PAGE_TYPE_HAVLE = 'stylus';
-var pageType = PAGE_TYPE_A4; //打印纸张类型
+var pageType = PAGE_TYPE_HAVLE; //打印纸张类型
 
 //发货单单号信息
 var PARAM_TITLE = '';
@@ -35,40 +35,43 @@ function makeData(){
 	//线路数据
 	lineData = [
 		{
-			lineName: '成都一线',
-			lineBranchs: {col1: '成都一店',col2: '成都一店',col3: '成都一店',col4: '成都一店',col5: '成都一店',col6: '成都一店'}
-		},{
-			lineName: '成都二线',
-			lineBranchs: {col7: '成都一店',col8: '成都一店',col9: '成都一店',col10: '成都一店',col11: '成都一店',col12: '成都一店'}
-		},{
-			lineName: '成都三线',
-			lineBranchs: {col3: '成都一店',col14: '成都一店',col5: '成都一店'}
+			lineName: '成都一线成都一线成都一线成都一线成都一线成都一线',
+			lineBranchs: {col1: '正式一正式一',col2: 'scm正式2'}
 		}
 	];
+	detailData.push(
+			{
+				ssfl: '馅料',
+				spbm: '0000004',
+				spmc: '猪肉豆角馅',
+				dw: '千克',
+				hj: '10,000',
+				col1: '100',
+				col2: '100'
+			}
+	);
+	detailData.push(
+			{
+				ssfl: '馅料',
+				spbm: '0000004',
+				spmc: '猪肉豆角馅',
+				dw: '千克',
+				hj: '10,000',
+				col1: '100',
+				col2: '100'
+			}
+	);
 
 	//商品发货数据
 	for (var i = 0; i < dataSize; i++) {
 		var rowData = {
-			ssfl: '奶制品类品类',
+			ssfl: '原物料原物料原物料原物料原物料原物料原物料原物料原物料原物料原物料原物料原物料原物料原物料原物料原物',
 			spbm: '123456789012',
 			spmc: '伊利优酸乳(250ml)好sdasd-sdfksldf,.sdfsdfsdf长好长',
 			dw: '千克',
 			hj: '10,000',
 			col1: '100',
-			col2: '100',
-			col3: '100',
-			col4: '100',
-			col5: '100',
-			col6: '100',
-			col7: '100',
-			col8: '100',
-			col9: '100',
-			col10: '100',
-			col11: '200',
-			col12: '300',
-			col13: '400',
-			col14: '500',
-			col15: '600'
+			col2: '100'
 		};
 		detailData.push(rowData);
 	}
